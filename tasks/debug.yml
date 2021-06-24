@@ -2,3 +2,6 @@
 - name: debug
   debug:
     msg: "{{ ansible_fqdn }}"
+- name: vars example
+  debug:
+    msg: "{{ version }}"    
