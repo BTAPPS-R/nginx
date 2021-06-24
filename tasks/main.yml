@@ -4,8 +4,8 @@
     name: "{{ packagename }}"
     state: "present"
 - name: copy file server.xml
-  copy:
-    src: server.xml
+  template:
+    src: server.xml.j2
     dest: /tmp/server.xml
   notify: restart nginx server
 - name: start nginx server
