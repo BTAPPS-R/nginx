@@ -1,0 +1,16 @@
+---
+- name: install packages
+  apt:
+    name: "{{ packagename }}"
+    state: "present"
+- name: copy file server.xml
+  copy:
+    src: server.xml
+    dest: /tmp/server.xml
+  notify: restart nginx server
+- name: start nginx server
+  service:
+    name: "{{ packagename }}"
+    state: started
+- name: call  debug.yml
+  include: debug.yml  
